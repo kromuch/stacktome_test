@@ -1,0 +1,28 @@
+@(topics: List[TopicTrend])
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>StackTome Test</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/topics.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.ico")">
+    </head>
+    <body>
+        @if(topics.nonEmpty) {
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Posted</th>
+                    <th>Trend</th>
+                </tr>
+                @for(topic <- topics){
+                    <tr>
+                        <td><a href='@{topic.link}'>@{topic.title}</a></td>
+                        <td>@{topic.pubDate}</td>
+                        <td>@{topic.trend}</td>
+                    </tr>
+                }
+            </table>
+        } else {<h2>Topics are collecting, please reload the page in few seconds.</h2>}
+    </body>
+</html>
